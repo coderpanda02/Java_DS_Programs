@@ -4,7 +4,7 @@ public class Stack_array {
 	
 	int max = 10;
 	int[] stack = new int[max];
-	int top = 0;
+	int top;
 	
 	public Stack_array(){
 		top = -1;
