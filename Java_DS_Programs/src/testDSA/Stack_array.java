@@ -2,98 +2,60 @@ package testDSA;
 
 public class Stack_array {
 	
-	static final int Max = 1000;
-	static int[] arr=new int[Max];
-	static int top;
+	int max = 10;
+	int[] stack = new int[max];
+	int top = 0;
 	
-	public Stack_array() {
+	public Stack_array(){
 		top = -1;
 	}
 	
-
-	private void push(int data) {
-		
-		if(top == Max-1) {
-			System.out.println("Stack overflow");
+	private void push(int i) {
+		if(top == max-1) {
+			System.out.println("Stack Overflow");
 		}
 		else {
-//			top = top+1;
-			arr[++top]=data;
-			System.out.println("~Element pushed~");
+			stack[++top] = i;
 		}
-		
-	}
-	
-	
-	private int pop() {
-
-		if(top == -1) {
-			System.out.println("Stack is empty");
-			return 0;
-		}
-		else {
-			System.out.println("~Element popped~");
-			return arr[top--];  //returns the current top after pop operation
-
-		}
-
 	}
 
-
-	private void print() {
-
-		System.out.print("Stack is: ");
-		for(int i=0;i<=top;i++) {
-			System.out.print(arr[i]+" ");
-		}
-		System.out.println();
+	private int pop() { 
+		return stack[top--]; //returning the deleted value then decrementing top
 	}
 
-	
-	private boolean isEmpty() {
-
-		if(top == -1) {
-			return true;
-		}
-		else {
-			return false;
-		}
-		
+	private int peek() { //peek at the top element
+		return stack[top];
 	}
 
-
-	private int top() {
-
-		if(top==-1) {
-			System.out.println("Stack underflow");
-			return 0;
+	private void show() {
+		for(int i=0; i<=top; i++) {
+			System.out.print(stack[i]+" ");
 		}
-		else {
-			System.out.print("Top of the stack: ");
-			return arr[top];
-		}
-
 	}
-	
-	
 	
 	public static void main(String[] args) {
 		
-		Stack_array stack = new Stack_array();
-		stack.push(1);
-		stack.push(2);
-		stack.push(3);
-		stack.print();
-		stack.pop();
-		System.out.print(stack.top());
-		System.out.println();
-		stack.push(4);
-		stack.push(5);
-		stack.print();
-		System.out.print(stack.top());
-		System.out.println();
-		System.out.println("Stack is empty? - "+stack.isEmpty());
-
+		Stack_array stack1 = new Stack_array();
+		
+		stack1.push(1);
+		stack1.push(2);
+		stack1.push(3);
+		stack1.push(4);
+		stack1.push(5);
+		
+		System.out.println("Stack after performing Push operation : ");
+		stack1.show();
+		
+		System.out.println("\nTop value of Stack after performing Push operation : "
+							+stack1.peek());
+		
+		System.out.println("\nPopped value: "+stack1.pop());
+		
+		System.out.println("\nStack after performing Pop operation : ");
+		stack1.show();
+		
+		System.out.println("\nTop value of Stack after performing Pop operation : "
+							+stack1.peek());
 	}
 	
 
