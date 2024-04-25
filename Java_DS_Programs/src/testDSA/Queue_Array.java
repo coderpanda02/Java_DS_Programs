@@ -24,8 +24,7 @@ public class Queue_Array {
 
 //		if(rear==Max-1) {   //(i+1)%N -->next element (i+N-1)%N-->prev element
 		
-		if((rear+1)%Max == front) {//-->for circular array-to reuse
-//										leftover array
+		if((rear+1)%Max == front) {//-->for circular array-to reuse leftover array
 			System.out.println("Queue is full");			
 		}
 		else if(rear == -1) {
