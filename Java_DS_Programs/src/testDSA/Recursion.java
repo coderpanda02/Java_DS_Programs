@@ -10,10 +10,10 @@ public class Recursion {
 		if(n==0 || n==1)
 			return 1;
 		else
-//		    f = n * fact(n-1);
-//			return f;
+		    // f = n * fact(n-1);  //non-tail recursion -> as here the next operation is to assign the value in f
+		    // return f;
 		
-		return n * fact(n-1); //tail recursion
+		return n * fact(n-1); //tail recursion -> recursive call is the last operation of the method before returning
 		
 	}
 
