@@ -14,7 +14,7 @@ public class Recursion {
 		    // return f;
 		
 		return n * fact(n-1); //tail recursion -> recursive call is the last operation of the method before returning
-		
+		// tail recursion is good for avoiding stack overflow error
 	}
 
 
