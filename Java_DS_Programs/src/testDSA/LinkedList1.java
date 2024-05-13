@@ -23,12 +23,13 @@ public class LinkedList1 {
 		
 		Node new_node = new Node(data);
 		
-		if(list.head==null) {  //insert at head
+		if(list.head==null) {  //insert at head if LinkedList is empty
 			list.head=new_node;
 		}
 		else {
-			Node temp=list.head; //to insert at last
-			while(temp.next!=null) {
+			//to insert at last
+			Node temp=list.head; 
+			while(temp.next!=null) { //traversing till last node
 				temp=temp.next;
 			}
 			temp.next=new_node;
@@ -42,17 +43,25 @@ public class LinkedList1 {
 		
 		Node new_node = new Node(data);
 		
-		if(position==1) {
+		if(position==1) { //insert at head, 1st position -> at index 0
 			new_node.next=list.head;
 			list.head=new_node;
 		}
-		else {    //insert at nth position
+		else {    
+			//insert at nth position
+			
 			Node temp=list.head;
-			for(int i=0;i<position-2;i++) {  //going to n-1th position
-				temp=temp.next;
+			
+			//going to (n-1)th position   
+			for(int i=0;i<position-2;i++) { //i<(pos-2), not i<(pos-1) as counting from 0, so, pos=6 is actually index 5
+				temp=temp.next; //Incrementing temp until (n-2)th pos (pos-3) and finally  
+						//pointing to (n-1)th pos (pos-2), so, i<pos-2, not i<=pos-2
 			}
-			new_node.next=temp.next;
-			temp.next=new_node;
+			
+			//shifting nth node after new_node
+			new_node.next=temp.next; //temp is now at n-1th pos, temp.next is nth node
+			
+			temp.next=new_node; //inserting new_node at nth pos
 		}
 		
 		return list;
@@ -60,26 +69,31 @@ public class LinkedList1 {
 	
 	private static LinkedList1 delete(LinkedList1 list,int position) {
 		
-		Node node=list.head;
+		Node del_temp=list.head;
+		
 		if(position==1) {    //delete 1st node
-			list.head=node.next;	
+			list.head=del_temp.next;	
 		}
 		else {      //delete nth node
-			Node temp1=list.head;
-			for(int i=0;i<position-2;i++) {  //going to n-1th position
-				temp1=temp1.next;
-			}
-			node=temp1.next;
-			temp1.next=node.next;
+			Node temp=list.head;
 			
+			for(int i=0;i<position-2;i++) {  //going to n-1th position (pos-2)
+				temp=temp.next; 
+			}
+			
+			//holding nth node in del_temp
+			del_temp=temp.next; //temp now at (n-1)th pos, temp.next is nth pos
+			
+			//dereferencing nth node
+			temp.next=del_temp.next; //(n-1)th node is now pointing to (n+1)th node		
 		}
-//		temp.delete;  think about freeing memory
+		
 		return list;
 	}
 	
 	
 	
-	private static void Print(LinkedList1 list) {
+	private void show(LinkedList1 list) {
 		
 		System.out.println("The list is: ");
 		
@@ -99,11 +113,15 @@ public class LinkedList1 {
 		list = insert(list, 2);
 		list = insert(list, 3);
 		list = insert(list, 4);
+		list.show(list);
+		System.out.println();
+		
 		list = insert(list, 5, 2);
+		list.show(list);
+		System.out.println();
+		
 		list = delete(list, 3);
-		Print(list);
+		list.show(list);
 	}
 
-
-	
 }
