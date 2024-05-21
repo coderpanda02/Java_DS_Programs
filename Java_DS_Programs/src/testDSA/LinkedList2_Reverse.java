@@ -37,23 +37,23 @@ public class LinkedList2_Reverse {
 	}
 	
 	
-//	private static Node ListReverse(Node head2) {
+//	private static Node ListReverse(Node head) {
 	
 //			// using iterative method  ---->
 //		
 //			Node prev = null;
-//			Node current = head2;
+//			Node current = head;
 //			Node next = null;
 //			
 //			while(current!=null) {
-//				next = current.next;
-//				current.next = prev;
-//				prev = current;
-//				current = next;
+//				next = current.next; //holding current.next value for future operations
+//				current.next = prev; //pointing current.next to previous node
+//				prev = current;   //incrementing previous to current node
+//				current = next;   //incrementing current to next node
 //				
 //			}
-//			head2 = prev;
-//			return head2;
+//			head = prev;
+//			return head;
 //		}
 	
 
