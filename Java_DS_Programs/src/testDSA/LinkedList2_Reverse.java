@@ -52,7 +52,7 @@ public class LinkedList2_Reverse {
 //				current = next;   //incrementing current to next node
 //				
 //			}
-//			head = prev;
+//			head = prev; //previous points to the last node now
 //			return head;
 //		}
 	
