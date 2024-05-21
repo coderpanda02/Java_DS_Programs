@@ -47,7 +47,7 @@ public class LinkedList2_Reverse {
 //			
 //			while(current!=null) {
 //				next = current.next; //holding current.next value for future operations
-//				current.next = prev; //pointing current.next to previous node
+//				current.next = prev; //reversing the link -> current.next pointing to previous node
 //				prev = current;   //incrementing previous to current node
 //				current = next;   //incrementing current to next node
 //				
