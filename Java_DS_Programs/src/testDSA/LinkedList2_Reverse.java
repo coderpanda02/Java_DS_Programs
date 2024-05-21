@@ -66,20 +66,19 @@ public class LinkedList2_Reverse {
 		}	
 		
 		Node reverse = ListReverse(head.next);	
-		
-		Node temp = head.next;
-		temp.next = head;
+
+		head.next.next = head;
 		head.next = null;
 		
 		return reverse;
 	}
 	
 	
-	private static void Print(Node head2) {
+	private static void Print(Node head) {
 	
-	while(head2!=null) {
-		System.out.print(head2.data+" ");
-		head2 = head2.next;
+	while(head!=null) {
+		System.out.print(head.data+" ");
+		head = head.next;
 		
 	}
 }
