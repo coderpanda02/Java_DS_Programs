@@ -102,10 +102,11 @@ public class LinkedList1 {
 		}
 		
 		if(head.data == i) {
-			head = deleteByVal(head.next, i);
+			head = deleteByVal(head.next, i); //checking for value at head, if found, changing head to head.next
 		}
 		else {
-			head.next = deleteByVal(head.next, i);
+			head.next = deleteByVal(head.next, i); //if value is not at head, no need to change the head,
+							      // checking from the next node
 		}
 		
 		return head;
@@ -122,10 +123,11 @@ public class LinkedList1 {
 		}
 		
 		if(head == delNode) {
-			head = deleteByNode(head.next, delNode);
+			head = deleteByNode(head.next, delNode); //checking for if node to delete is head, if so, changing head to head.next
 		}
 		else {
-			head.next = deleteByNode(head.next, delNode);
+			head.next = deleteByNode(head.next, delNode); //if node to delete is not the head, no need to change the head, 
+								      // checking from the next node
 		}
 		
 		return head;
