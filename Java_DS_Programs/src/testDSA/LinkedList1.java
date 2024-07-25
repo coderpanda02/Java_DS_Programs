@@ -55,10 +55,9 @@ public class LinkedList1 {
 			Node temp=list.head;
 			
 			//going to (n-1)th position   
-			for(int i=0;i<position-2;i++) { //i<(pos-2), not i<(pos-1) as index counting 
-											//from 0, so, pos=6 is actually index 5
+			for(int i=0;i<position-2;i++) { //i<(pos-2), not i<(pos-1) as index counting from 0, so, pos=6 is actually index 5
 				temp=temp.next; //Incrementing temp until (n-2)th pos (pos-3) and finally  
-							 //pointing to (n-1)th pos (pos-2), so, i<pos-2, not i<=pos-2
+						//pointing to (n-1)th pos (pos-2), so, i<pos-2, not i<=pos-2
 			}
 			
 			//shifting nth node after new_node
