@@ -32,6 +32,7 @@ public class LinkedList1 {
 			while(temp.next!=null) { //traversing till last node
 				temp=temp.next;
 			}
+			//temp now at last Node
 			temp.next=new_node;
 		}
 		
@@ -42,7 +43,9 @@ public class LinkedList1 {
 		
 		Node new_node = new Node(data);
 		
-		if(position==1) { //insert at head, 1st position -> at index 0
+		//insert at head, 1st position -> at index 0
+		//checking if head is null to handle NullPointerException
+		if(list.head == null || position==1) { 
 			new_node.next=list.head;
 			list.head=new_node;
 		}
@@ -52,10 +55,10 @@ public class LinkedList1 {
 			Node temp=list.head;
 			
 			//going to (n-1)th position   
-			for(int i=0;i<position-2;i++) { //i<(pos-2), not i<(pos-1) as counting from 0, so, pos=6 is actually index 5
-											
+			for(int i=0;i<position-2;i++) { //i<(pos-2), not i<(pos-1) as index counting 
+											//from 0, so, pos=6 is actually index 5
 				temp=temp.next; //Incrementing temp until (n-2)th pos (pos-3) and finally  
-						//pointing to (n-1)th pos (pos-2), so, i<pos-2, not i<=pos-2
+							 //pointing to (n-1)th pos (pos-2), so, i<pos-2, not i<=pos-2
 			}
 			
 			//shifting nth node after new_node
@@ -89,7 +92,7 @@ public class LinkedList1 {
 			del_temp=temp.next; //temp now at (n-1)th pos, temp.next is nth pos
 			
 			//dereferencing nth node
-			temp.next=del_temp.next; //(n-1)th node is now pointing to (n+1)th node		
+			temp.next=del_temp.next; //(n-1)th node is now pointing to (n+1)th node, i.e. null		
 		}
 		
 		return list;
@@ -102,11 +105,10 @@ public class LinkedList1 {
 		}
 		
 		if(head.data == i) {
-			head = deleteByVal(head.next, i); //checking for value at head, if found, changing head to head.next
+			head = deleteByVal(head.next, i);//checking for value at head, if found changing head to head.next
 		}
 		else {
-			head.next = deleteByVal(head.next, i); //if value is not at head, no need to change the head,
-							      // checking from the next node
+			head.next = deleteByVal(head.next, i); //if value is not at head, no need to change the head, checking from the next node
 		}
 		
 		return head;
@@ -126,8 +128,8 @@ public class LinkedList1 {
 			head = deleteByNode(head.next, delNode); //checking for if node to delete is head, if so, changing head to head.next
 		}
 		else {
-			head.next = deleteByNode(head.next, delNode); //if node to delete is not the head, no need to change the head, 
-								      // checking from the next node
+			head.next = deleteByNode(head.next, delNode);//if node to delete is not the head,  
+								    //no need to change the head, checking from the next node
 		}
 		
 		return head;
@@ -139,7 +141,7 @@ public class LinkedList1 {
 			return null;
 		}
 		
-		//two pointer approach using slow and fast (to avoid traversing the list more than once)
+		//two pointer approach using slow and fast(to avoid traversing the list more than once)
 		Node slow = new Node();
 		slow.next = head; //slow starts from the previous node of the head node
 		Node fast = head; //fast starts from the head node
@@ -172,13 +174,15 @@ public class LinkedList1 {
 	public static void main(String[] args) {
 		
 		LinkedList1 list = new LinkedList1();
+		
+		list = insert(list, 10, 2);
 		list = insert(list, 1);
 		list = insert(list, 2);
 		list = insert(list, 3);
 		list = insert(list, 4);
 		list = insert(list, 5);
 		list = insert(list, 6);
-
+//		list = insert(list, 7);
 		list.show(list.head);
 		System.out.println();
 		
